@@ -15,19 +15,25 @@
 
 
 <%= form_for(@message) do |f| %>
+  <% if @message.errors.present? %>
+    <div class="alert alert-danger">
+        <%= alert %>
+        <ul>
+            <% @message.errors.full_messages.each do |full_message| %>
+            <li>
+                <%= full_message %>
+            </li>
+            <% end %>
+        </ul>
+    </div>
+  <% end %>
 
  <%= f.label :name, "名前" %>
- <br>
- <p>
- <%= f.text_area :name %>
- </p>  
+ <%= f.text_field :name, class: 'form-control' %><br>
 
  <%= f.label :body, "内容" %>
- <br>
- <p>
- <%= f.text_area :body %>
- </p>
- <p>
+ <%= f.text_area :body, class: 'form-control' %><br>
+
  <%= f.submit class: "btn btn-sm btn-primary" %>
- </p>
+
 <% end %>
