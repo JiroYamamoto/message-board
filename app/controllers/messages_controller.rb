@@ -1,6 +1,10 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:edit, :update, :destroy]
   
+  def age
+  end
+  
+  
   def edit
   end
   def update
